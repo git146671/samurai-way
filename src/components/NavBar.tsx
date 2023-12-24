@@ -23,4 +23,5 @@ export const NavBar = () => {
 const StyledNav = styled.nav`
     grid-area: n;
     background-color: #fff0c7;
+    color: cornflowerblue;
 `

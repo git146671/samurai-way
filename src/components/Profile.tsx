@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Profile = () => {
     return <StyledProfile>
         <div>
-            <img width='1000px' src='https://cbgd.ask.fm/wallpapers2/015/033/372/928/original/newyork.jpg'/>
+            <img width='100%' src='https://cbgd.ask.fm/wallpapers2/015/033/372/928/original/newyork.jpg'/>
         </div>
         <div>
             Ava + descr
