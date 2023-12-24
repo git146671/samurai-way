@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Technologies = () => {
+export const NavBar = () => {
     return <StyledNav>
         <div>
             <a>Profile</a>

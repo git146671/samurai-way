@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const Content = () => {
-    return <StyledContent>
+export const Profile = () => {
+    return <StyledProfile>
         <div>
             <img width='1000px' src='https://cbgd.ask.fm/wallpapers2/015/033/372/928/original/newyork.jpg'/>
         </div>
@@ -13,10 +13,10 @@ export const Content = () => {
             <div>post1</div>
             <div>post2</div>
         </div>
-    </StyledContent>
+    </StyledProfile>
 }
 
-const StyledContent = styled.div`
-    grid-area: c;
+const StyledProfile = styled.div`
+    grid-area: p;
     background-color: #ffd3cc;
 `
