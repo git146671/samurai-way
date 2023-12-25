@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {MyPosts} from "./myPosts/MyPosts";
 
 export const Profile = () => {
     return <StyledProfile>
@@ -8,11 +9,7 @@ export const Profile = () => {
         <div>
             Ava + descr
         </div>
-        <div>
-            My posts
-            <div>post1</div>
-            <div>post2</div>
-        </div>
+        <MyPosts/>
     </StyledProfile>
 }
 
