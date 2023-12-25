@@ -1,10 +1,15 @@
 import styled from "styled-components";
 
-export const Post = () => {
+type PostPropsType = {
+    message: string;
+    src: string;
+}
+
+export const Post = (props: PostPropsType) => {
     return <StyledPost>
         <div>
-            <img src='https://www.shareicon.net/data/128x128/2016/10/12/843290_pet_512x512.png'/>
-            post1
+            <img src={props.src}/>
+            {props.message}
         </div>
     </StyledPost>
 }
