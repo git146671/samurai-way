@@ -4,6 +4,8 @@ import {Header} from "./components/header/Header";
 import {NavBar} from "./components/navbar/NavBar";
 import {Profile} from "./components/profile/Profile";
 import styled from "styled-components";
+import {WrapperContent} from "./components/wrapper/WrapperContent";
+import {Dialogs} from "./components/dialogs/Dialogs";
 
 
 function App() {
@@ -11,7 +13,10 @@ function App() {
         <StyledWrapper>
             <Header/>
             <NavBar/>
-            <Profile/>
+            <WrapperContent>
+                <Profile/>
+                <Dialogs/>
+            </WrapperContent>
         </StyledWrapper>
     );
 }
