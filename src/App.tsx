@@ -6,18 +6,23 @@ import {Profile} from "./components/profile/Profile";
 import styled from "styled-components";
 import {WrapperContent} from "./components/wrapper/WrapperContent";
 import {Dialogs} from "./components/dialogs/Dialogs";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 
 function App() {
     return (
-        <StyledWrapper>
-            <Header/>
-            <NavBar/>
-            <WrapperContent>
-                <Profile/>
-                <Dialogs/>
-            </WrapperContent>
-        </StyledWrapper>
+        <BrowserRouter>
+            <StyledWrapper>
+                <Header/>
+                <NavBar/>
+                <WrapperContent>
+                    <Routes>
+                        <Route path='dialogs' element={<Dialogs/>}/>
+                        <Route path='profile' element={<Profile/>}/>
+                    </Routes>
+                </WrapperContent>
+            </StyledWrapper>
+        </BrowserRouter>
     );
 }
 

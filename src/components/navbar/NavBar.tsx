@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const NavBar = () => {
     return <StyledNav>
         <div>
-            <a>Profile</a>
+            <a href="/profile">Profile</a>
         </div>
         <div>
-            <a>Messages</a>
+            <a href="/dialogs">Messages</a>
         </div>
         <div>
             <a>News</a>
