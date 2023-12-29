@@ -1,12 +1,21 @@
 import styled from "styled-components";
+import {NavLink} from "react-router-dom";
 
 export const Dialogs = () => {
     return <StyledDialogs>
         <StyledDialogsItems>
-            <div>Friend1</div>
-            <div>Friend2</div>
-            <div>Friend3</div>
-            <div>Friend4</div>
+            <div>
+                <NavLink to='/dialogs/1'>Friend1</NavLink>
+            </div>
+            <div>
+                <NavLink to='/dialogs/2'>Friend2</NavLink>
+            </div>
+            <div>
+                <NavLink to='/dialogs/3'>Friend3</NavLink>
+            </div>
+            <div>
+                <NavLink to='/dialogs/4'>Friend4</NavLink>
+            </div>
         </StyledDialogsItems>
         <StyledMessages>
             <div>msg1</div>
@@ -23,6 +32,13 @@ const StyledDialogs = styled.div`
 
 const StyledDialogsItems = styled.div`
     padding: 10px;
+    a {
+        color: darkred;
+        text-decoration: none;
+    }
+    a.active {
+        color: orangered;
+    }
     `
 
 const StyledMessages = styled.div`
