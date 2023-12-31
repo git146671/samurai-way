@@ -1,26 +1,37 @@
 import styled from "styled-components";
 import {NavLink} from "react-router-dom";
 
+type DialogItemPropsType = {
+    id: string;
+    name: string;
+}
+
+type MessagePropsType = {
+    message: string;
+}
+
+const DialogItem = (props:DialogItemPropsType) => {
+    return <div>
+        <NavLink to={'/dialogs/' + props.id}>{props.name}</NavLink>
+    </div>
+}
+
+const Message = (props:MessagePropsType) => {
+    return <div>{props.message}</div>
+}
+
 export const Dialogs = () => {
     return <StyledDialogs>
         <StyledDialogsItems>
-            <div>
-                <NavLink to='/dialogs/1'>Friend1</NavLink>
-            </div>
-            <div>
-                <NavLink to='/dialogs/2'>Friend2</NavLink>
-            </div>
-            <div>
-                <NavLink to='/dialogs/3'>Friend3</NavLink>
-            </div>
-            <div>
-                <NavLink to='/dialogs/4'>Friend4</NavLink>
-            </div>
+            <DialogItem id='1' name='Friend1'/>
+            <DialogItem id='2' name='Friend2'/>
+            <DialogItem id='3' name='Friend3'/>
+            <DialogItem id='4' name='Friend4'/>
         </StyledDialogsItems>
         <StyledMessages>
-            <div>msg1</div>
-            <div>msg2</div>
-            <div>msg3</div>
+            <Message message='msg1'/>
+            <Message message='msg2'/>
+            <Message message='msg3'/>
         </StyledMessages>
     </StyledDialogs>
 }

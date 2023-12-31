@@ -37,6 +37,7 @@ export default App;
 const StyledWrapper = styled.div`
     width: 1400px;
     margin: 0 auto;
+    padding: 7px;
     display: grid;
     grid-template-rows: 60px 1fr;
     grid-template-columns: 2fr 10fr;

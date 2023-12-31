@@ -2,20 +2,26 @@ import styled from "styled-components";
 import {Post} from "./post/Post";
 
 export const MyPosts = () => {
-    return <StyledPosts>
+    return <StyledPostsBlock>
+        <h3>My posts</h3>
         <div>
-            My posts
             <textarea></textarea>
-            <button>Add</button>
-            <button>Remove</button>
+        </div>
+        <button>Add</button>
+        <button>Remove</button>
+        <StyledPosts>
             <Post message='post-1' src='https://www.shareicon.net/data/128x128/2016/10/12/843290_pet_512x512.png'/>
             <Post message='post-2' src='https://www.shareicon.net/data/128x128/2016/10/12/843290_pet_512x512.png'/>
             <Post message='post-3' src='https://www.shareicon.net/data/128x128/2016/10/12/843290_pet_512x512.png'/>
-
-        </div>
-    </StyledPosts>
+        </StyledPosts>
+    </StyledPostsBlock>
 }
 
-const StyledPosts = styled.div`
+const StyledPostsBlock = styled.div`
     background-color: #b9aaff;
+    padding: 10px;
+`
+
+const StyledPosts = styled.div`
+    margin-top: 10px;
 `
