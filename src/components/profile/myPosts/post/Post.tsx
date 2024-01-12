@@ -3,6 +3,7 @@ import styled from "styled-components";
 type PostPropsType = {
     message: string;
     src: string;
+    likesCount: number
 }
 
 export const Post = (props: PostPropsType) => {
@@ -10,6 +11,7 @@ export const Post = (props: PostPropsType) => {
         <div>
             <img src={props.src}/>
             {props.message}
+            <span>  Likes: {props.likesCount}</span>
         </div>
     </StyledPost>
 }
