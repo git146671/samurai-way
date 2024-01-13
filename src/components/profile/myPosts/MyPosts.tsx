@@ -17,9 +17,7 @@ export const MyPosts = () => {
         <button>Add</button>
         <button>Remove</button>
         <StyledPosts>
-            <Post message={postsData[0].message} src={postsData[0].icon} likesCount={postsData[0].likes}/>
-            <Post message={postsData[1].message} src={postsData[1].icon} likesCount={postsData[1].likes}/>
-            <Post message={postsData[2].message} src={postsData[2].icon} likesCount={postsData[2].likes}/>
+            {postsData.map(p => <Post message={p.message} src={p.icon} likesCount={p.likes}/>)}
         </StyledPosts>
     </StyledPostsBlock>
 }

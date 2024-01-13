@@ -1,24 +1,6 @@
 import styled from "styled-components";
-import {NavLink} from "react-router-dom";
-
-type DialogItemPropsType = {
-    id: string;
-    name: string;
-}
-
-type MessagePropsType = {
-    message: string;
-}
-
-const DialogItem = (props:DialogItemPropsType) => {
-    return <div>
-        <NavLink to={'/dialogs/' + props.id}>{props.name}</NavLink>
-    </div>
-}
-
-const Message = (props:MessagePropsType) => {
-    return <div>{props.message}</div>
-}
+import {Message} from "./message/Message";
+import {DialogItem} from "./dialogItem/DialogItem";
 
 export const Dialogs = () => {
     let dialogsData = [
@@ -34,15 +16,10 @@ export const Dialogs = () => {
     ]
     return <StyledDialogs>
         <StyledDialogsItems>
-            <DialogItem id={dialogsData[0].id} name={dialogsData[0].name}/>
-            <DialogItem id={dialogsData[1].id} name={dialogsData[1].name}/>
-            <DialogItem id={dialogsData[2].id} name={dialogsData[2].name}/>
-            <DialogItem id={dialogsData[3].id} name={dialogsData[3].name}/>
+            {dialogsData.map(d => <DialogItem id={d.id} name={d.name}/>)}
         </StyledDialogsItems>
         <StyledMessages>
-            <Message message={messages[0].text}/>
-            <Message message={messages[1].text}/>
-            <Message message={messages[2].text}/>
+            {messages.map(m => <Message message={m.text}/>)}
         </StyledMessages>
     </StyledDialogs>
 }
