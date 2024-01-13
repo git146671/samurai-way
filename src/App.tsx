@@ -11,8 +11,17 @@ import {Music} from "./components/music/Music";
 import {News} from "./components/news/News";
 import {Settings} from "./components/settings/Settings";
 
+interface PostType {
+    id: string;
+    message: string;
+    icon: string;
+    likes: number
+}
 
-function App() {
+type AppPropsType = {
+    postsData: PostType[]
+}
+function App(props: AppPropsType) {
     return (
         <BrowserRouter>
             <StyledWrapper>
@@ -21,7 +30,7 @@ function App() {
                 <WrapperContent>
                     <Routes>
                         <Route path='dialogs/*' element={<Dialogs/>}/>
-                        <Route path='profile' element={<Profile/>}/>
+                        <Route path='profile' element={<Profile postsData={props.postsData}/>}/>
                         <Route path='news' element={<News/>}/>
                         <Route path='music' element={<Music/>}/>
                         <Route path='settings' element={<Settings/>}/>

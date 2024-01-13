@@ -1,14 +1,18 @@
 import styled from "styled-components";
 import {Post} from "./post/Post";
 
-export const MyPosts = () => {
-    const iconSrc = "https://www.shareicon.net/data/128x128/2016/10/12/843290_pet_512x512.png"
+interface PostType {
+    id: string;
+    message: string;
+    icon: string;
+    likes: number
+}
 
-    let postsData = [
-        {id: "1", message: "post-1", icon: iconSrc, likes: 22},
-        {id: "2", message: "post-2", icon: iconSrc, likes: 2},
-        {id: "3", message: "post-3", icon: iconSrc, likes: 66}
-    ]
+type MyPostsPropsType = {
+    postsData: PostType[]
+}
+export const MyPosts = (props:MyPostsPropsType) => {
+
     return <StyledPostsBlock>
         <h3>My posts</h3>
         <div>
@@ -17,7 +21,7 @@ export const MyPosts = () => {
         <button>Add</button>
         <button>Remove</button>
         <StyledPosts>
-            {postsData.map(p => <Post message={p.message} src={p.icon} likesCount={p.likes}/>)}
+            {props.postsData.map(p => <Post message={p.message} src={p.icon} likesCount={p.likes}/>)}
         </StyledPosts>
     </StyledPostsBlock>
 }
