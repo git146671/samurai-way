@@ -9,7 +9,9 @@ export interface PostType {
 }
 
 export type MyPostsPropsType = {
-    postsData: PostType[]
+    profileState: {
+        posts: PostType[]
+    }
 }
 export const MyPosts = (props:MyPostsPropsType) => {
 
@@ -21,7 +23,7 @@ export const MyPosts = (props:MyPostsPropsType) => {
         <button>Add</button>
         <button>Remove</button>
         <StyledPosts>
-            {props.postsData.map(p => <Post message={p.message} src={p.icon} likesCount={p.likes}/>)}
+            {props.profileState.posts.map(p => <Post message={p.message} src={p.icon} likesCount={p.likes}/>)}
         </StyledPosts>
     </StyledPostsBlock>
 }

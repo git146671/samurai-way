@@ -13,17 +13,19 @@ export type DialogProps = {
 }
 
 export type DialogsPropsType = {
-    dialogs: DialogProps[];
-    messages: MsgPropsType[];
+    dialogsState: {
+        dialogs: DialogProps[];
+        messages: MsgPropsType[]
+    }
 }
 export const Dialogs = (props: DialogsPropsType) => {
 
     return <StyledDialogs>
         <StyledDialogsItems>
-            {props.dialogs.map(d => <DialogItem id={d.id} name={d.name}/>)}
+            {props.dialogsState.dialogs.map(d => <DialogItem id={d.id} name={d.name}/>)}
         </StyledDialogsItems>
         <StyledMessages>
-            {props.messages.map(m => <Message message={m.text}/>)}
+            {props.dialogsState.messages.map(m => <Message message={m.text}/>)}
         </StyledMessages>
     </StyledDialogs>
 }
