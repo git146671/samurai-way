@@ -5,21 +5,17 @@ import {NavBar} from "./components/navbar/NavBar";
 import {Profile} from "./components/profile/Profile";
 import styled from "styled-components";
 import {WrapperContent} from "./components/wrapper/WrapperContent";
-import {Dialogs} from "./components/dialogs/Dialogs";
+import {DialogProps, Dialogs, DialogsPropsType, MsgPropsType} from "./components/dialogs/Dialogs";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Music} from "./components/music/Music";
 import {News} from "./components/news/News";
 import {Settings} from "./components/settings/Settings";
+import {MyPostsPropsType, PostType} from "./components/profile/myPosts/MyPosts";
 
-interface PostType {
-    id: string;
-    message: string;
-    icon: string;
-    likes: number
-}
-
-type AppPropsType = {
-    postsData: PostType[]
+export type AppPropsType = {
+    postsData: PostType[];
+    dialogs: DialogProps[];
+    messages: MsgPropsType[]
 }
 function App(props: AppPropsType) {
     return (
@@ -29,7 +25,7 @@ function App(props: AppPropsType) {
                 <NavBar/>
                 <WrapperContent>
                     <Routes>
-                        <Route path='dialogs/*' element={<Dialogs/>}/>
+                        <Route path='dialogs/*' element={<Dialogs dialogs={props.dialogs} messages={props.messages}/>}/>
                         <Route path='profile' element={<Profile postsData={props.postsData}/>}/>
                         <Route path='news' element={<News/>}/>
                         <Route path='music' element={<Music/>}/>

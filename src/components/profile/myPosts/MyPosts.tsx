@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import {Post} from "./post/Post";
 
-interface PostType {
+export interface PostType {
     id: string;
     message: string;
     icon: string;
     likes: number
 }
 
-type MyPostsPropsType = {
+export type MyPostsPropsType = {
     postsData: PostType[]
 }
 export const MyPosts = (props:MyPostsPropsType) => {

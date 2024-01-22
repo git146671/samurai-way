@@ -11,7 +11,21 @@ let postsData = [
     {id: "3", message: "post-3", icon: iconSrc, likes: 66}
 ]
 
+let dialogsData = [
+    {id: "1", name: "Friend1"},
+    {id: "2", name: "Friend2"},
+    {id: "3", name: "Friend3"},
+    {id: "4", name: "Friend4"},
+    {id: "5", name: "Friend5"}
+]
+
+let messages = [
+    {id: "1", text: "msg1"},
+    {id: "2", text: "msg2"},
+    {id: "3", text: "msg3"},
+]
+
 ReactDOM.render(
-    <App postsData={postsData}/>,
+    <App postsData={postsData} dialogs={dialogsData} messages={messages}/>,
   document.getElementById('root')
 );
