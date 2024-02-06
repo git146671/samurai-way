@@ -21,7 +21,8 @@ type AppPropsType = {
             dialogs: DialogProps[];
             messages: MsgPropsType[]
         }
-    }
+    },
+    addPost: (newPostMsg: string) => void
 }
 function App(props: AppPropsType) {
     return (
@@ -32,7 +33,7 @@ function App(props: AppPropsType) {
                 <WrapperContent>
                     <Routes>
                         <Route path='dialogs/*' element={<Dialogs dialogsState={props.appState.messagesPage}/>}/>
-                        <Route path='profile' element={<Profile profileState={props.appState.profilePage}/>}/>
+                        <Route path='profile' element={<Profile profileState={props.appState.profilePage} addPost={props.addPost}/>}/>
                         <Route path='news' element={<News/>}/>
                         <Route path='music' element={<Music/>}/>
                         <Route path='settings' element={<Settings/>}/>

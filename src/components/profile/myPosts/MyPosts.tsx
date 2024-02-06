@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {Post} from "./post/Post";
+import React, {ChangeEvent, ChangeEventHandler, useState} from "react";
 
 export interface PostType {
     id: string;
@@ -12,15 +13,22 @@ export type MyPostsPropsType = {
     profileState: {
         posts: PostType[]
     }
+    addPost: (newPostMsg: string) => void
 }
+
 export const MyPosts = (props:MyPostsPropsType) => {
+
+    let [newPostMsg, setNewPostMsg] = useState<string>("");
+    function onChangeHandler(e: ChangeEvent<HTMLTextAreaElement>) {
+        setNewPostMsg(e.currentTarget.value);
+    }
 
     return <StyledPostsBlock>
         <h3>My posts</h3>
         <div>
-            <textarea></textarea>
+            <textarea onChange={onChangeHandler}>{newPostMsg}</textarea>
         </div>
-        <button>Add</button>
+        <button onClick={() => props.addPost(newPostMsg)}>Add</button>
         <button>Remove</button>
         <StyledPosts>
             {props.profileState.posts.map(p => <Post message={p.message} src={p.icon} likesCount={p.likes}/>)}

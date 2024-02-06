@@ -4,6 +4,6 @@ import {ProfileInfo} from "./profileInfo/ProfileInfo";
 export const Profile = (props:MyPostsPropsType) => {
     return <div>
         <ProfileInfo/>
-        <MyPosts profileState={props.profileState}/>
+        <MyPosts profileState={props.profileState} addPost={props.addPost}/>
     </div>
 }
