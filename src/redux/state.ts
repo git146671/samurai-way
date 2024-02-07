@@ -1,4 +1,5 @@
 import {v1} from "uuid";
+import {rerenderTree} from "../render";
 
 const iconSrc = "https://www.shareicon.net/data/128x128/2016/10/12/843290_pet_512x512.png"
 
@@ -27,4 +28,5 @@ export let state = {
 export let addPost = (newPostMsg: string) => {
     const newPost = {id: v1(), message:newPostMsg, icon: iconSrc, likes: 0};
     state.profilePage.posts.push(newPost);
+    rerenderTree(state);
 }
