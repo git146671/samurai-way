@@ -5,26 +5,18 @@ import {NavBar} from "./components/navbar/NavBar";
 import {Profile} from "./components/profile/Profile";
 import styled from "styled-components";
 import {WrapperContent} from "./components/wrapper/WrapperContent";
-import {DialogProps, Dialogs, DialogsPropsType, MsgPropsType} from "./components/dialogs/Dialogs";
+import {Dialogs} from "./components/dialogs/Dialogs";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Music} from "./components/music/Music";
 import {News} from "./components/news/News";
 import {Settings} from "./components/settings/Settings";
-import {MyPostsPropsType, PostType} from "./components/profile/myPosts/MyPosts";
+import {StoreType} from "./redux/state";
 
 type AppPropsType = {
-    appState: {
-        profilePage: {
-            posts: PostType[];
-        },
-        messagesPage: {
-            dialogs: DialogProps[];
-            messages: MsgPropsType[]
-        }
-    },
-    addPost: (newPostMsg: string) => void
+    store: StoreType;
 }
-function App(props: AppPropsType) {
+const App: React.FC<AppPropsType> = (props) => {
+    const state = props.store.getState();
     return (
         <BrowserRouter>
             <StyledWrapper>
@@ -32,8 +24,11 @@ function App(props: AppPropsType) {
                 <NavBar/>
                 <WrapperContent>
                     <Routes>
-                        <Route path='dialogs/*' element={<Dialogs dialogsState={props.appState.messagesPage}/>}/>
-                        <Route path='profile' element={<Profile profileState={props.appState.profilePage} addPost={props.addPost}/>}/>
+                        <Route path='dialogs/*' element={<Dialogs dialogs={state.messagesPage.dialogs}
+                                                                  messages={state.messagesPage.messages}/>}/>
+                        <Route path='profile'
+                               element={<Profile profileState={state.profilePage} addPost={props.store.addPost.bind(props.store)}
+                                                 changeNewPostText={props.store.changeNewText.bind(props.store)}/>}/>
                         <Route path='news' element={<News/>}/>
                         <Route path='music' element={<Music/>}/>
                         <Route path='settings' element={<Settings/>}/>

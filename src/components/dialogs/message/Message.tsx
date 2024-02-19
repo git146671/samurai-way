@@ -1,6 +1,5 @@
-type MessagePropsType = {
-    message: string;
-}
-export const Message = (props: MessagePropsType) => {
-    return <div>{props.message}</div>
+import {MsgType} from "../../../redux/state";
+
+export const Message = (props: MsgType) => {
+    return <div>{props.text}</div>
 }

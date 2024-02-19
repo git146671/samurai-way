@@ -1,17 +1,12 @@
 import styled from "styled-components";
+import {PostType} from "../../../../redux/state";
 
-type PostPropsType = {
-    message: string;
-    src: string;
-    likesCount: number
-}
-
-export const Post = (props: PostPropsType) => {
+export const Post = (props: PostType) => {
     return <StyledPost>
         <div>
-            <img src={props.src}/>
+            <img src={props.icon}/>
             {props.message}
-            <span>  Likes: {props.likesCount}</span>
+            <span>  Likes: {props.likes}</span>
         </div>
     </StyledPost>
 }

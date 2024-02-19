@@ -1,31 +1,16 @@
 import styled from "styled-components";
 import {Message} from "./message/Message";
 import {DialogItem} from "./dialogItem/DialogItem";
+import {MessagesPageType} from "../../redux/state";
 
-export type MsgPropsType = {
-    id: string;
-    text: string;
-}
-
-export type DialogProps = {
-    id: string;
-    name: string
-}
-
-export type DialogsPropsType = {
-    dialogsState: {
-        dialogs: DialogProps[];
-        messages: MsgPropsType[]
-    }
-}
-export const Dialogs = (props: DialogsPropsType) => {
+export const Dialogs = (props: MessagesPageType) => {
 
     return <StyledDialogs>
         <StyledDialogsItems>
-            {props.dialogsState.dialogs.map(d => <DialogItem id={d.id} name={d.name}/>)}
+            {props.dialogs.map(d => <DialogItem id={d.id} name={d.name}/>)}
         </StyledDialogsItems>
         <StyledMessages>
-            {props.dialogsState.messages.map(m => <Message message={m.text}/>)}
+            {props.messages.map(m => <Message text={m.text}/>)}
         </StyledMessages>
     </StyledDialogs>
 }
