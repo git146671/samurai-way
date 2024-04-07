@@ -10,7 +10,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {Music} from "./components/music/Music";
 import {News} from "./components/news/News";
 import {Settings} from "./components/settings/Settings";
-import {StoreType} from "./redux/state";
+import store, {StoreType} from "./redux/state";
 
 type AppPropsType = {
     store: StoreType;
@@ -27,8 +27,9 @@ const App: React.FC<AppPropsType> = (props) => {
                         <Route path='dialogs/*' element={<Dialogs dialogs={state.messagesPage.dialogs}
                                                                   messages={state.messagesPage.messages}/>}/>
                         <Route path='profile'
-                               element={<Profile profileState={state.profilePage} addPost={props.store.addPost.bind(props.store)}
-                                                 changeNewPostText={props.store.changeNewText.bind(props.store)}/>}/>
+                               element={<Profile profileState={state.profilePage}
+                                                 dispatch = {store.dispatch.bind(props.store)}
+                               />}/>
                         <Route path='news' element={<News/>}/>
                         <Route path='music' element={<Music/>}/>
                         <Route path='settings' element={<Settings/>}/>
