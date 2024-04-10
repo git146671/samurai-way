@@ -46,8 +46,6 @@ const iconSrc = "https://www.shareicon.net/data/128x128/2016/10/12/843290_pet_51
 
 export type StoreType = {
     _state: RootStateType;
-    addPost: () => void;
-    changeNewText: (newText: string) => void;
     _rerenderTree: () => void;
     subscribe: (observer: () => void) => void;
     getState: () => RootStateType;
@@ -76,21 +74,6 @@ const store: StoreType = {
                 {id: "3", text: "msg3"},
             ]
         }
-    },
-    addPost() {
-        const newPost = {
-            id: v1(),
-            message: this._state.profilePage.msgForNewPost,
-            icon: iconSrc,
-            likes: 0
-        };
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.msgForNewPost = "";
-        this._rerenderTree();
-    },
-    changeNewText(newText: string) {
-        this._state.profilePage.msgForNewPost = newText;
-        this._rerenderTree();
     },
     _rerenderTree() {
     },
@@ -125,5 +108,12 @@ const store: StoreType = {
         }
     }
 }
+
+export const addPostAC = (): AddPostAction => ({type: "ADD-POST"})
+
+export const updateNewPostTextAC = (newText: string): UpdateNewPostTextAction => ({
+        type: "UPDATE-NEW-POST-TEXT",
+        newText
+})
 
 export default store;

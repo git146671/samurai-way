@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import {Post} from "./post/Post";
 import React, {ChangeEvent} from "react";
-import {ActionTypes, ProfilePageType} from "../../../redux/state";
+import {
+    ActionTypes, addPostAC,
+    AddPostAction,
+    ProfilePageType,
+    updateNewPostTextAC,
+    UpdateNewPostTextAction
+} from "../../../redux/state";
 
 export type MyPostsPropsType = {
     profileState: ProfilePageType;
@@ -10,10 +16,10 @@ export type MyPostsPropsType = {
 
 export const MyPosts = (props:MyPostsPropsType) => {
     function onChangeHandler(e: ChangeEvent<HTMLTextAreaElement>) {
-        props.dispatch({type: "UPDATE-NEW-POST-TEXT", newText: e.currentTarget.value});
+        props.dispatch(updateNewPostTextAC(e.currentTarget.value));
     }
     function onClickHandler() {
-        props.dispatch({type: "ADD-POST"});
+        props.dispatch(addPostAC());
     }
     return <StyledPostsBlock>
         <h3>My posts</h3>
